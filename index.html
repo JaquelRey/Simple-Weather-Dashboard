@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <section class="hero is-link is-small">
+        <div class="hero-body">
+            <p class="title has-text-centered">
+                Weather Dashboard
+            </p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="columns">
+
+            <!-- left -->
+
+            <div class="column is-4 has-background-link-light">
+                <div class="title is-4">Search for a City:</div>
+                <input id="searched" class="input mb-5" type="text" placeholder="Boston, USA">
+                <button id="searchBtn" class="button is-fullwidth is-info" onclick="queryEvent()">Search</button>
+                <hr>
+
+                <div id="cityHistory">
+
+
+                </div>
+
+            </div>
+            <!-- right -->
+            <div class="column is-8 pt-0">
+
+                <div class="column pt-0">
+
+                    <div id="display" class="box">
+                        <div class="content is-flex-desktop is-align-items-center">
+                            <div id="city" class="title">City Name</div>
+                            <div id="currentDate" class="subtitle">Date</div>
+                            <div id="weatherType" class="subtitle"></div>
+                            <figure class="image is-64x64 ">
+                                <img id="cityweatherIcon" src="" alt="weather icon">
+                            </figure>
+                        </div>
+                        <div id="cityDisplay" class="content">
+
+                            <p id="tempIs"></p>
+                            <p id="humidity"></p>
+                            <p id="windspeed"></p>
+                            <p id="uvi"></p>
+                            <p class="m-0" id="uvDesc"></p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="columns mx-5">
+                    <div class="column is-one-fifth">
+                        <div id="dayOne" class="box p-1">
+                            <p class="forecast-date">Day temp</p>
+                            <figure class="image is-64x64 ">
+                                <img id="cityweatherIcon2" src="" alt="weather icon">
+                            </figure>
+                            <p class="forecast-desc">Day temp</p>
+                            <p class="forecast-day-temp">Day temp</p>
+                            <p class="forecast-night-temp">Night temp</p>
+                            <p class="forecast-humidity">Humidity</p>
+                            <p class="forecast-windspeed">Windspeed</p>
+                        </div>
+                    </div>
+                    <div class="column is-one-fifth">
+                        <div class="forecast-day--temp">
+                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-night--temp">
+                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-humidity">
+                            <p>Humidity: ${humidity}%</p>
+                        </div>
+                        <div class="windspeed">
+                            <p>Humidity: ${windspeed}%</p>
+                        </div>
+                        <div class="forecast-uvi">
+                            <p class="has-background-link-light">UV index: ${uvi}</p>
+                        </div>
+                    </div>
+                    <div class="column is-one-fifth">
+                        <div class="forecast-day--temp">
+                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-night--temp">
+                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-humidity">
+                            <p>Humidity: ${humidity}%</p>
+                        </div>
+                        <div class="windspeed">
+                            <p>Humidity: ${windspeed}%</p>
+                        </div>
+                        <div class="forecast-uvi">
+                            <p class="has-background-link-light">UV index: ${uvi}</p>
+                        </div>
+                    </div>
+                    <div class="column is-one-fifth">
+                        <div class="forecast-day--temp">
+                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-night--temp">
+                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-humidity">
+                            <p>Humidity: ${humidity}%</p>
+                        </div>
+                        <div class="windspeed">
+                            <p>Humidity: ${windspeed}%</p>
+                        </div>
+                        <div class="forecast-uvi">
+                            <p class="has-background-link-light">UV index: ${uvi}</p>
+                        </div>
+                    </div>
+                    <div class="column is-one-fifth">
+                        <div class="forecast-day--temp">
+                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-night--temp">
+                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
+                        </div>
+                        <div class="forecast-humidity">
+                            <p>Humidity: ${humidity}%</p>
+                        </div>
+                        <div class="windspeed">
+                            <p>Humidity: ${windspeed}%</p>
+                        </div>
+                        <div class="forecast-uvi">
+                            <p class="has-background-link-light">UV index: ${uvi}</p>
+                        </div>
+                    </div>
+
+    </section>
+    </div>
+    </section>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="script.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</html>
