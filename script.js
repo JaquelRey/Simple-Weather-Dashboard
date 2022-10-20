@@ -78,64 +78,73 @@ function retrieveData(foundLat, foundLon, userInput) {
         ".png";
       $("#cityweatherIcon").attr("src", iconUrl);
 
-      fiveDayForecast(data, dateTimezoneConverted);
+      fiveDayForecast(foundLat, foundLon)
     })
     .catch((error) => console.log(error));
 }
-/* TO DO..........
-    HOME STRETCH EDITION: 
 
-    -make a variable for the day in the daily array
-    -make a loop that will increment the variable 5 times
-    -have that variable passed into a display template 5x, and push that returned
-    to an array
-    -access each object in the array and display them to the page
+function fiveDayForecast(foundLat, foundLon) {
 
-    -weep with joy
+  const apiKey = "d3c11a611952a564411087138723b6e9";
+  const api = `https://api.openweathermap.org/data/2.5/forecast?lat=${foundLat}&lon=${foundLon}&units=imperial&appid=${apiKey}`
+  fetch(api)
+  .then((res) => {
+    return res.json();
+  })
+  .then((response) => {
 
-    -realize you have to increment the date to be relevant too, and weep with sorrow
-    -recover and pass that into the same template too, like a boss B)
+    console.log(response)
 
-    -purge the html from index.html and generate it here instead
-      -doing that with the UV might be a stretch goal, see how much trouble it is vs worth rn
+    const element = document.querySelectorAll(".forecastDay")
     
-    -do away with all the (element).text bullcrap
-      -youre going to generate those elements & plug the
-        data in at the same time
+    for (i = 0; i < element.length; i++) {
+      element[i].innerHTML = "";
 
-    -clean up code FOR THE LAST TIME
+      const index = i * 8 + 4;
+      const daily = new Date(response.list[index].dt * 1000);
+      const day = daily.getDate();
+      const month = daily.getMonth() + 1;
+      const year = daily.getFullYear();
 
-    -sit back in awe at your creation, it was a long time coming but you learned a lot,
-     and did it without code snips.
+      const dateEl = document.createElement("p");
+      dateEl.setAttribute("class", "forecast-date");
+      dateEl.innerHTML = month + "/" + day + "/" + year;
+      element[i].append(dateEl);
 
-    -make a readme baby B)
-    -submit and keep going! you're going to get through this! you can catch up!
-      -remember that rome didn't got built in a day
-      -remember that in the future, everything is made out of chrome
-    -BREATHE
-    */
+      // Icon for current weather
+      const imageWrap = document.createElement("figure")
+      imageWrap.setAttribute("class", "image is-64x64")
+      element[i].append(imageWrap)
 
-function fiveDayForecast(data, dateTimezoneConverted) {
-  $(".forecast-date").text(dateTimezoneConverted);
+      const imgUrl = "https://openweathermap.org/img/wn/" + response.list[index].weather[0].icon + ".png"
 
-  const iconUrl2 =
-    "http://openweathermap.org/img/w/" + data.daily[1].weather[0].icon + ".png";
+      const imageEl = document.createElement("img")
+      imageEl.setAttribute("src", imgUrl);
+      imageEl.setAttribute("alt", response.list[index].weather[0].description);
 
-  $("#cityweatherIcon2").attr("src", iconUrl2);
+      imageWrap.append(imageEl)
 
-  $(".forecast-desc").text(
-    "Predicted: " + data.daily[1].weather[0].description
-  );
-  
+      const tempEl = document.createElement("p");
+      tempEl.innerHTML = "Day temp: " + response.list[index].main.temp + "\u00B0 F";
+      element[i].append(tempEl);
 
-  $(".forecast-day-temp").text("Day temp: " + data.daily[1].temp.day + "\u00B0 F");
-  $(".forecast-night-temp").text("Night temp: " + data.daily[1].temp.night + "\u00B0 F");
-  $(".forecast-humidity").text("Humidity: " + data.daily[1].humidity + "%");
-  $(".forecast-windspeed").text("Windspeed: " + data.daily[1].wind_speed + " MPH");
-  console.log("here here" + data.daily[1].wind_speed)
-}
+      // const nightEl = document.createElement("p");
+      // nightEl.innerHTML = "Night temp: " + response.list[index].main.humidity + "\u00B0 F";
+      // element[i].append(nightEl);
 
-// Chain of if else statements was determined to perform better than a switch for this purpose
+      const humidEl = document.createElement("p");
+      humidEl.innerHTML = "Humidity: " + response.list[index].main.humidity + "%";
+      element[i].append(humidEl);
+
+      const windEl = document.createElement("p");
+      windEl.innerHTML = "Wind Speed: " + response.list[index].wind.speed + " MPH";
+      element[i].append(windEl);
+
+  }
+    
+  })
+  .catch((error) => console.log(error)
+  )}
 
 function uviDisplay(uvIndex) {
   if (uvIndex < 3) {

@@ -37,18 +37,19 @@
             <!-- right -->
             <div class="column is-8 pt-0">
 
-                <div class="column pt-0">
+                <div class="column pt-3">
 
-                    <div id="display" class="box">
-                        <div class="content is-flex-desktop is-align-items-center">
+                    <div id="display" class="box columns">
+
+                        <div class="content is-flex-desktop is-flex-direction-column">
                             <div id="city" class="title">City Name</div>
                             <div id="currentDate" class="subtitle">Date</div>
                             <div id="weatherType" class="subtitle"></div>
-                            <figure class="image is-64x64 ">
-                                <img id="cityweatherIcon" src="" alt="weather icon">
-                            </figure>
                         </div>
-                        <div id="cityDisplay" class="content">
+                        <figure class="image is-64x64 is-pulled-left">
+                            <img id="cityweatherIcon" src="" alt="weather icon">
+                        </figure>
+                        <div id="cityDisplay" class="content is-align-items-flex-end">
 
                             <p id="tempIs"></p>
                             <p id="humidity"></p>
@@ -59,89 +60,70 @@
                         </div>
                     </div>
                 </div>
-                <div class="columns mx-5">
-                    <div class="column is-one-fifth">
-                        <div id="dayOne" class="box p-1">
-                            <p class="forecast-date">Day temp</p>
-                            <figure class="image is-64x64 ">
-                                <img id="cityweatherIcon2" src="" alt="weather icon">
-                            </figure>
-                            <p class="forecast-desc">Day temp</p>
-                            <p class="forecast-day-temp">Day temp</p>
-                            <p class="forecast-night-temp">Night temp</p>
-                            <p class="forecast-humidity">Humidity</p>
-                            <p class="forecast-windspeed">Windspeed</p>
-                        </div>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="forecast-day--temp">
-                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-night--temp">
-                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-humidity">
-                            <p>Humidity: ${humidity}%</p>
-                        </div>
-                        <div class="windspeed">
-                            <p>Humidity: ${windspeed}%</p>
-                        </div>
-                        <div class="forecast-uvi">
-                            <p class="has-background-link-light">UV index: ${uvi}</p>
-                        </div>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="forecast-day--temp">
-                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-night--temp">
-                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-humidity">
-                            <p>Humidity: ${humidity}%</p>
-                        </div>
-                        <div class="windspeed">
-                            <p>Humidity: ${windspeed}%</p>
-                        </div>
-                        <div class="forecast-uvi">
-                            <p class="has-background-link-light">UV index: ${uvi}</p>
-                        </div>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="forecast-day--temp">
-                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-night--temp">
-                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-humidity">
-                            <p>Humidity: ${humidity}%</p>
-                        </div>
-                        <div class="windspeed">
-                            <p>Humidity: ${windspeed}%</p>
-                        </div>
-                        <div class="forecast-uvi">
-                            <p class="has-background-link-light">UV index: ${uvi}</p>
-                        </div>
-                    </div>
-                    <div class="column is-one-fifth">
-                        <div class="forecast-day--temp">
-                            <p>Day Temp: ${temp}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-night--temp">
-                            <p>Night Temp: ${tempnight}<sup>\u00B0 F</sup></p>
-                        </div>
-                        <div class="forecast-humidity">
-                            <p>Humidity: ${humidity}%</p>
-                        </div>
-                        <div class="windspeed">
-                            <p>Humidity: ${windspeed}%</p>
-                        </div>
-                        <div class="forecast-uvi">
-                            <p class="has-background-link-light">UV index: ${uvi}</p>
-                        </div>
+                <div class="columns pt-4">
+                    <!-- days -->
+                    <div class="column is-one-fifth is-flex is-flex-direction-column forecastDay box m-1 p-1">
+                        <p class="forecast-date">Date</p>
+                        <figure class="image is-64x64 ">
+                            <img src="" alt="weather icon">
+                        </figure>
+                        <p class="forecast-desc">Description</p>
+                        <p class="forecast-day-temp">Day temp</p>
+                        <p class="forecast-night-temp">Night temp</p>
+                        <p class="forecast-humidity">Humidity</p>
+                        <p class="forecast-windspeed">Windspeed</p>
                     </div>
 
+                    <div class="column is-one-fifth is-flex is-flex-direction-column forecastDay box m-1 p-1">
+                        <p class="forecast-date">Date</p>
+                        <figure class="image is-64x64 ">
+                            <img src="" alt="weather icon">
+                        </figure>
+                        <p class="forecast-desc">Description</p>
+                        <p class="forecast-day-temp">Day temp</p>
+                        <p class="forecast-night-temp">Night temp</p>
+                        <p class="forecast-humidity">Humidity</p>
+                        <p class="forecast-windspeed">Windspeed</p>
+                    </div>
+
+                    <div class="column is-one-fifth is-flex is-flex-direction-column forecastDay box m-1 p-1">
+                        <p class="forecast-date">Date</p>
+                        <figure class="image is-64x64 ">
+                            <img src="" alt="weather icon">
+                        </figure>
+                        <p class="forecast-desc">Description</p>
+                        <p class="forecast-day-temp">Day temp</p>
+                        <p class="forecast-night-temp">Night temp</p>
+                        <p class="forecast-humidity">Humidity</p>
+                        <p class="forecast-windspeed">Windspeed</p>
+                    </div>
+
+                    <div class="column is-one-fifth is-flex is-flex-direction-column forecastDay box m-1 p-1">
+                        <p class="forecast-date">Date</p>
+                        <figure class="image is-64x64 ">
+                            <img src="" alt="weather icon">
+                        </figure>
+                        <p class="forecast-desc">Description</p>
+                        <p class="forecast-day-temp">Day temp</p>
+                        <p class="forecast-night-temp">Night temp</p>
+                        <p class="forecast-humidity">Humidity</p>
+                        <p class="forecast-windspeed">Windspeed</p>
+                    </div>
+
+                    <div class="column is-one-fifth is-flex is-flex-direction-column forecastDay box m-1 p-1">
+                        <p class="forecast-date">Date</p>
+                        <figure class="image is-64x64 ">
+                            <img src="" alt="weather icon">
+                        </figure>
+                        <p class="forecast-desc">Description</p>
+                        <p class="forecast-day-temp">Day temp</p>
+                        <p class="forecast-night-temp">Night temp</p>
+                        <p class="forecast-humidity">Humidity</p>
+                        <p class="forecast-windspeed">Windspeed</p>
+                    </div>
+
+
+                </div>
     </section>
     </div>
     </section>
